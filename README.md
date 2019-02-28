@@ -14,7 +14,7 @@ bash <(curl -s https://raw.githubusercontent.com/lukasjapan/bt-speaker/master/in
 For details refer to the comments in the [install script](https://github.com/lukasjapan/bt-speaker/blob/master/install.sh).
 
 Depending on your application, you might also want to send all audio to the headphone jack.
-This can be done by `raspi-config`:
+This can be done by `raspi-config` (If absent, # apt-get install raspi-config):
 
 `Advanced Options` -> `Audio` -> `Force 3.5mm ('headphone') jack`
 
