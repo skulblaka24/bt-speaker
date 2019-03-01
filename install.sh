@@ -38,6 +38,7 @@ cp -n /opt/bt-speaker/hooks.default/disconnect /etc/bt_speaker/hooks/disconnect
 # Install and start bt-speaker daemon
 echo
 echo "Registering and starting bt-speaker with systemd..."
+chmod -x /opt/bt-speaker/bt_speaker.service
 systemctl enable /opt/bt-speaker/bt_speaker.service
 if [ "`systemctl is-active bt_speaker`" != "active" ]; then
   systemctl start bt_speaker
