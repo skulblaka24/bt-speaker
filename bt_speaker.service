@@ -3,8 +3,8 @@ Description="Simple bluetooth speaker for the Raspberry Pi"
 
 [Service]
 TimeoutStartSec=0
-WorkingDirectory=/opt/bt-speaker
-ExecStart=/opt/bt-speaker/bt_speaker.py
+WorkingDirectory=/data/script/bt-speaker
+ExecStart=/data/script/bt-speaker/bt_speaker.py
 Restart=always
 User=btspeaker
 
