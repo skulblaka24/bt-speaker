@@ -4,22 +4,31 @@ A simple Bluetooth Speaker Daemon designed for the Raspberry Pi 3.
 
 ## Installation
 
-Quick Installation for Raspbian:
+Use ansible role here:
+https://github.com/skulblaka24/starfly-bt-speaker.git
 
 ```bash
-sudo -i
-bash <(curl -s https://raw.githubusercontent.com/lukasjapan/bt-speaker/master/install.sh)
+ansible-playbook -i inventory ./starfly-bt-speaker/tests/setup-btspeaker-rpi-playbook.yml
 ```
 
-For details refer to the comments in the [install script](https://github.com/lukasjapan/bt-speaker/blob/master/install.sh).
+Method below is DEPRECATED:
 
-Depending on your application, you might also want to send all audio to the headphone jack.
-This can be done by `raspi-config` (If absent, # apt-get install raspi-config):
+> Quick Installation for Raspbian:
 
-`Advanced Options` -> `Audio` -> `Force 3.5mm ('headphone') jack`
+>```bash
+> sudo -i
+> bash <(curl -s https://raw.githubusercontent.com/lukasjapan/bt-speaker/master/install.sh)
+> ```
 
-_Note_: Bt-speaker has been made with the default raspbian audio configuration in mind.
-If you are using external sound cards or have installed a sound daemon (like PulseAudio or Jack) you might need to adjust the config file accordingly.
+> For details refer to the comments in the [install script](https://github.com/lukasjapan/bt-speaker/blob/master/install.sh).
+
+> Depending on your application, you might also want to send all audio to the headphone jack.
+> This can be done by `raspi-config` (If absent, # apt-get install raspi-config):
+
+> `Advanced Options` -> `Audio` -> `Force 3.5mm ('headphone') jack`
+
+> _Note_: Bt-speaker has been made with the default raspbian audio configuration in mind.
+> If you are using external sound cards or have installed a sound daemon (like PulseAudio or Jack) you might need to adjust the config file accordingly.
 
 ## Usage
 
@@ -31,6 +40,25 @@ The bright side of this logic is that no button for unpairing is needed.
 The speakers name will default to the hostname of your Raspberry Pi.
 BT-Speaker does not manage this value.
 You are advised to change the hostname according to your needs.
+
+## Known CLI and Services
+
+<pre><code>CLI:
+$ bluetoothctl
+$ echo -e "power on\nexit\n" | bluetoothctl
+$ echo -e "agent on\nexit\n" | bluetoothctl
+$ echo -e "default-agent\nexit\n" | bluetoothctl
+$ echo -e "discoverable on\nexit\n" | bluetoothctl 
+$ echo -e "trust 00:00:00:00:00:00\nexit\n" | bluetoothctl
+
+$ bt-power Alias that point to the script that power on the bluetooth (Manual)
+$ bt-speaker Alias that point to the python script to start the bt-speaker agent (Manual)
+
+Services:
+bluetooth.service
+bt_speaker.service
+bt_power.service
+</pre></code>
 
 ## Config
 
