@@ -1,14 +1,11 @@
 [Unit]
 Description="Simple bluetooth speaker for the Raspberry Pi"
-After=bt_power.service
-Requires=bluetooth.service
-Wants=bluetooth.service
+After=bluetooth.service
 
 [Service]
-TimeoutStartSec=30
+TimeoutStartSec=0
 WorkingDirectory=/data/script/bt-speaker
-ExecStartPre=/bin/sleep 10
-ExecStart=/data/script/bt-speaker/bt_speaker.py
+ExecStart=/data/script/bt-speaker/bt_speaker
 Restart=always
 User=btspeaker
 
