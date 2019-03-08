@@ -145,6 +145,9 @@ def setup_bt():
     media = BTMedia(config.get('bluez', 'device_path'))
     media.register_endpoint(sink._path, sink.get_properties())
 
+    # Test pour compter les recurrences
+    print("Print de test pour sauver le monde")
+
     def connect():
         subprocess.Popen(config.get('bt_speaker', 'connect_command'), shell=True).communicate()
 
