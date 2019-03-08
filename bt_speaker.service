@@ -1,6 +1,5 @@
 [Unit]
 Description="Simple bluetooth speaker for the Raspberry Pi"
-After=bluetooth.service
 
 [Service]
 TimeoutStartSec=0
