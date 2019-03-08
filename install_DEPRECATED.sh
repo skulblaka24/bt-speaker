@@ -18,7 +18,8 @@ echo "done."
 
 # Download bt-speaker to /opt (or update if already present)
 echo
-cd /opt
+mkdir -p /data/script/
+cd /data/script/
 if [ -d bt-speaker ]; then
   echo "Updating bt-speaker..."
   cd bt-speaker && git pull && git checkout ${1:master}
